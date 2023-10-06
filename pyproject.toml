@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "discord-ai-bot"
+version = "0.1.0"
+description = ""
+authors = ["Cody Yu <codyyu717@gmail.com>"]
+readme = "README.md"
+packages = [{include = "discord_ai_bot", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+discord-py = "^2.3.2"
+openai = "^0.28.1"
+pydantic = "^2.4.2"
+python-dotenv = "^1.0.0"
+psycopg2-binary = "^2.9.9"
+
+
+[tool.poetry.group.lint.dependencies]
+isort = "^5.12.0"
+black = "^23.9.1"
+flake8 = "^6.1.0"
+mypy = "^1.5.1"
+
+[tool.poetry.group.dev]
+optional = true
+
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+# 3rd party import
+ignore_missing_imports = true
+disallow_untyped_defs = "True"
+pretty = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
