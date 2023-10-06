@@ -33,9 +33,8 @@ async def on_message(message: Message) -> None:
 
 
 async def main():
-    await bot.load_extension("events.guildsDataUpdate")
+    await bot.load_extension("cogs.guildsDataUpdate")
     await bot.start(token=config.DISCORD_BOT_TOKEN)
-    # bot.run(token=config.DISCORD_BOT_TOKEN, log_handler=None)
 
 
 loop = asyncio.get_event_loop()
