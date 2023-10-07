@@ -9,12 +9,8 @@ from psycopg2.extensions import connection
 from discord_ai_bot.config import Config
 from discord_ai_bot.model import Guilds, Members, MembersBatch
 
+logger = logging.getLogger(__name__)
 config = Config()
-logger = logging.getLogger("discord")
-logger.setLevel(logging.INFO)
-handler = logging.StreamHandler()
-logger.addHandler(handler)
-handler.setLevel(logging.INFO)
 
 
 class GuildsDataUpdate(commands.Cog):
@@ -78,5 +74,5 @@ class GuildsDataUpdate(commands.Cog):
         return con
 
 
-async def setup(bot):
+async def setup(bot: Bot) -> None:
     await bot.add_cog(GuildsDataUpdate(bot))
