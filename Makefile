@@ -1,13 +1,18 @@
-.PHONY: all, format, lint
+.PHONY: all, run, format, lint, help
 
 all: help
 
 ########################
 # Execution
 ########################
+run bot:
+	docker-compose -f docker-compose-bot.yml up
 
-run:
-	docker-compose up
+run kafka:
+	docker-compose -f docker-compose-kafka.yml up
+
+run druid:
+	docker-compose -f docker-compose-druid.yml up
 
 ########################
 # Linting and Formatting
