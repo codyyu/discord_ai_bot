@@ -39,9 +39,7 @@ class MsgDataUpdate(commands.Cog):
             "message_content": message.content,
             "member_id": message.author.id,
         }
-        producer.produce(
-            topic=topic, key="message", value=json.dumps(msg), callback=msg_callback
-        )
+        producer.produce(topic=topic, value=json.dumps(msg), callback=msg_callback)
         producer.poll(1)
         producer.flush()
 
