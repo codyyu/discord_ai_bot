@@ -10,9 +10,9 @@ To demonstrate the data streaming pipelines by implementing the modern data stac
 - Language: Python 3.11
 - Data Source: Discord Bot
 - Storage Layer: PostgreSQL
-- Streaming Layer: Apache Kafka
-- Analytics Layer: Apache Druid
-- Visualization Layer: Apache Superset
+- Streaming Layer: [Apache Kafka](https://kafka.apache.org/)
+- Analytics Layer: [Apache Druid](https://druid.apache.org/)
+- Visualization Layer: [Apache Superset](https://superset.apache.org/)
 
 ## III. Infastructure:
 TODO
@@ -24,3 +24,22 @@ Due to the scope and purpose of this project, everything will be running in dock
 - make
 - docker & docker-compose
 
+#### Commands:
+`make kafka`
+
+`make bot`
+
+`make druid`
+
+## V. Developing Tutorial:
+TODO
+
+## VI. Learning Resources:
+
+#### Discord:
+
+#### Apache Kafka:
+
+#### Apache Druid:
+
+#### Apache Superset:
