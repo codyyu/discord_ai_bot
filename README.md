@@ -38,7 +38,7 @@ TODO
 
 #### Discord:
 - [Doc: discord.py API Documentation](https://discordpy.readthedocs.io/en/stable/)
-- [stack overflow:  Obot cogs usage](https://stackoverflow.com/questions/53528168/how-do-i-use-cogs-with-discord-py)
+- [stack overflow: bot cogs usage](https://stackoverflow.com/questions/53528168/how-do-i-use-cogs-with-discord-py)
 
 #### Apache Kafka:
 - [Doc: confluent-kafka API Documentation](https://docs.confluent.io/platform/current/clients/confluent-kafka-python/html/index.html)
