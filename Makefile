@@ -5,13 +5,13 @@ all: help
 ########################
 # Execution
 ########################
-run bot:
+bot:
 	docker-compose -f docker-compose-bot.yml up
 
-run kafka:
+kafka:
 	docker-compose -f docker-compose-kafka.yml up
 
-run druid:
+druid:
 	docker-compose -f docker-compose-druid.yml up
 
 ########################
