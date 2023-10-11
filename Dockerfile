@@ -1,6 +1,6 @@
 ARG BOT_DIR=/bot_runner
 
-FROM python:3.11.5-bullseye
+FROM python:3.9-slim
 ARG BOT_DIR
 RUN mkdir -p ${BOT_DIR}
 COPY src/discord_ai_bot ${BOT_DIR}/src/discord_ai_bot
