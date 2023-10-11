@@ -168,3 +168,6 @@ kafka-3.5.1-src
 
 # notebook
 *.ipynb
+
+# model
+src/discord_ai_bot/llm_model/*
