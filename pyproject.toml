@@ -7,20 +7,26 @@ readme = "README.md"
 packages = [{include = "discord_ai_bot", from = "src"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9, <3.10"
 discord-py = "^2.3.2"
 openai = "^0.28.1"
 pydantic = "^2.4.2"
 python-dotenv = "^1.0.0"
 psycopg2-binary = "^2.9.9"
 confluent-kafka = "^2.2.0"
+transformers = "^4.34.0"
+torch = [
+    {version = "<2.0.0+cpu", platform = "win64"},
+    {version = "*", source = "pytorch-cpu-src", platform = "linux"}
+    ]
+
 
 
 [tool.poetry.group.lint.dependencies]
-isort = "^5.12.0"
 black = "^23.9.1"
 flake8 = "^6.1.0"
 mypy = "^1.5.1"
+isort = "^5.12.0"
 
 [tool.poetry.group.dev]
 optional = true
@@ -28,6 +34,12 @@ optional = true
 
 [tool.poetry.group.dev.dependencies]
 jupyter = "^1.0.0"
+
+
+[[tool.poetry.source]]
+name = "pytorch-cpu-src"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
 
 [tool.black]
 line-length = 88

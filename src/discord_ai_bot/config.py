@@ -1,7 +1,8 @@
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
-from pydantic import BaseModel
+from pydantic import BaseModel, FilePath
 from schema import Database
 
 load_dotenv()
@@ -17,3 +18,10 @@ class Config(BaseModel):
         port=os.environ["BOT_BACKEND_DATABASE_PORT"],
         dbname=os.environ["BOT_BACKEND_DATABASE_NAME"],
     )
+    MODEL_CONFIG_PATH: FilePath = Path(
+        os.getcwd(), "src", "discord_ai_bot", "llm_model", "config.json"
+    )
+    MODEL_PATH: FilePath = Path(
+        os.getcwd(), "src", "discord_ai_bot", "llm_model", "pytorch_model.bin"
+    )
+    TOKENIZER_DIR: FilePath = Path(os.getcwd(), "src", "discord_ai_bot", "llm_model")

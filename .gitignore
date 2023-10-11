@@ -165,3 +165,6 @@ kafka-3.5.1-src
 
 # Docker
 .DS_Store
+
+# notebook
+*.ipynb
