@@ -7,7 +7,7 @@ To demonstrate the data streaming pipelines by implementing the modern data stac
 ## II.  Tech Stack:
 
 
-- Language: Python 3.11
+- Language: Python 3.9
 - Data Source: Discord Bot
 - Storage Layer: PostgreSQL
 - Streaming Layer: [Apache Kafka](https://kafka.apache.org/)
