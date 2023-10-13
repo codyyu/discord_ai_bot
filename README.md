@@ -33,15 +33,18 @@ Fill in your Discord Bot Token in .env file
     - Find `./superset/docker-compose.yml` file
     - Add `TALISMAN_ENABLED=False` in the `superset` service as an extra environment variable
 - Step 3.\
-`make kafka`
+`make kafka`\
+Note 1: This step will create a `messages` topic by default\
+Note 2: Please make sure all containers are up and running before moving to the next step.
 - Step 4.\
-`make druid`
+`make bot`\
+Note 1: This step will instantiate the bot and make the connection to kafka
 - Step 5.\
-`make superset`
-- Step 6. \
-`make bot`
+Install the Bot on your Discord Server and type some texts in the Discord channel for testing. Monitoring the Discord Bot log to see if there are any errors.
 - Step 7.\
-Install the Bot on your Discord Server
+`make druid`
+- Step 8. \
+`make superset`
 
 ## V. Developing Tutorial:
 TODO
