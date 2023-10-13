@@ -27,8 +27,11 @@ Due to the scope and purpose of this project, everything will be running in dock
 #### Setup:
 - Step 1.\
 `make setup`
-- Step 2.\
+- Step 2.1.\
 Fill in your Discord Bot Token in .env file
+- Step 2.2.
+    - Find `./superset/docker-compose.yml` file
+    - Add `TALISMAN_ENABLED=False` in the `superset` service as an extra environment variable
 - Step 3.\
 `make kafka`
 - Step 4.\
