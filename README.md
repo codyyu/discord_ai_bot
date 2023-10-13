@@ -24,12 +24,21 @@ Due to the scope and purpose of this project, everything will be running in dock
 - make
 - docker & docker-compose
 
-#### Commands:
+#### Setup:
+- Step 1.\
+`make setup`
+- Step 2.\
+Fill in your Discord Bot Token in .env file
+- Step 3.\
 `make kafka`
-
-`make bot`
-
+- Step 4.\
 `make druid`
+- Step 5.\
+`make superset`
+- Step 6. \
+`make bot`
+- Step 7.\
+Install the Bot on your Discord Server
 
 ## V. Developing Tutorial:
 TODO
