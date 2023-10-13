@@ -1,0 +1,10 @@
+ARG BUILD_DIR=/build/
+
+FROM python:3.9-slim
+ARG BUILD_DIR
+WORKDIR ${BUILD_DIR}
+COPY ./model_init.py ./
+RUN python3 -m pip install --upgrade pip
+RUN pip install transformers
+RUN python3 model_init.py
+ENTRYPOINT ["tail", "-f", "/dev/null"]

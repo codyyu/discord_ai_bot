@@ -171,3 +171,6 @@ kafka-3.5.1-src
 
 # model
 src/discord_ai_bot/llm_model/*
+
+# Superset
+superset

@@ -14,6 +14,9 @@ kafka:
 druid:
 	docker compose -f docker-compose-druid.yml up
 
+superset:
+	docker compose -f superset/docker-compose.yml up
+
 ########################
 # Linting and Formatting
 ########################
@@ -27,6 +30,28 @@ lint:
 	poetry run mypy .
 
 #########################
+# Set Up
+#########################
+setup:
+	@echo 'Creating .env file'
+	touch .env
+	@echo -n 'DISCORD_BOT_TOKEN=' >> .env
+	@echo -n 'BOT_BACKEND_DATABASE_USERNAME=postgres' >> .env
+	@echo -n 'BOT_BACKEND_DATABASE_PASSWORD=postgres' >> .env
+	@echo -n 'BOT_BACKEND_DATABASE_HOST=bot_backend_database' >> .env
+	@echo -n 'BOT_BACKEND_DATABASE_PORT=5432' >> .env
+	@echo -n 'BOT_BACKEND_DATABASE_NAME=discord' >> .env
+	@echo 'Please fill in Discord Bot Token manually after setup'
+	@echo 'Download HuggingFace Language Model...'
+	docker build -t discord/model_init -f ./docker/Dockerfile_model_init ./docker
+	docker run --rm --name discord-model-init discord/model_init
+	docker cp discord-model-init:/build/llm_model ./src/discord_ai_bot/
+	@echo 'Cloning Superset Repo...'
+	git clone https://github.com/apache/superset.git
+
+
+
+#########################
 # Help
 #########################
 help:
@@ -34,6 +59,7 @@ help:
 	@echo 'make bot			instantiate discord bot'
 	@echo 'make kafka		instantiate kafka'
 	@echo 'make druid		instantiate druid'
+	@echo 'make superset	instantiate superset'
 	@echo 'make format		run code formatter'
 	@echo 'make lint		run code linter'
 	@echo '============================================='
