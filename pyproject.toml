@@ -16,7 +16,7 @@ psycopg2-binary = "^2.9.9"
 confluent-kafka = "^2.2.0"
 transformers = "^4.34.0"
 torch = [
-    {version = "<2.0.0+cpu", platform = "win64"},
+    {version = "<2.0.0+cpu", platform = "win32"},
     {version = "*", source = "pytorch-cpu-src", platform = "linux"}
     ]
 
