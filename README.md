@@ -15,7 +15,7 @@ To demonstrate the data streaming pipelines by implementing the modern data stac
 - Visualization Layer: [Apache Superset](https://superset.apache.org/)
 
 ## III. Infastructure:
-TODO
+![architecture](./assets/discord_ai_bot_infra.drawio.png)
 
 ## IV. Set Up
 
