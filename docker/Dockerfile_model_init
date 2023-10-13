@@ -6,5 +6,6 @@ WORKDIR ${BUILD_DIR}
 COPY ./model_init.py ./
 RUN python3 -m pip install --upgrade pip
 RUN pip install transformers
+RUN pip install torch --index-url https://download.pytorch.org/whl/cpu
 RUN python3 model_init.py
 ENTRYPOINT ["tail", "-f", "/dev/null"]

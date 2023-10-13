@@ -35,17 +35,19 @@ lint:
 setup:
 	@echo 'Creating .env file'
 	touch .env
-	@echo -n 'DISCORD_BOT_TOKEN=' >> .env
-	@echo -n 'BOT_BACKEND_DATABASE_USERNAME=postgres' >> .env
-	@echo -n 'BOT_BACKEND_DATABASE_PASSWORD=postgres' >> .env
-	@echo -n 'BOT_BACKEND_DATABASE_HOST=bot_backend_database' >> .env
-	@echo -n 'BOT_BACKEND_DATABASE_PORT=5432' >> .env
-	@echo -n 'BOT_BACKEND_DATABASE_NAME=discord' >> .env
+	@echo "DISCORD_BOT_TOKEN=" >> .env
+	@echo "BOT_BACKEND_DATABASE_USERNAME=postgres" >> .env
+	@echo "BOT_BACKEND_DATABASE_PASSWORD=postgres" >> .env
+	@echo "BOT_BACKEND_DATABASE_HOST=bot_backend_database" >> .env
+	@echo "BOT_BACKEND_DATABASE_PORT=5432" >> .env
+	@echo "BOT_BACKEND_DATABASE_NAME=discord" >> .env
 	@echo 'Please fill in Discord Bot Token manually after setup'
 	@echo 'Download HuggingFace Language Model...'
 	docker build -t discord/model_init -f ./docker/Dockerfile_model_init ./docker
-	docker run --rm --name discord-model-init discord/model_init
+	docker run -d --rm --name discord-model-init discord/model_init
 	docker cp discord-model-init:/build/llm_model ./src/discord_ai_bot/
+	docker stop discord-model-init
+	docker rmi discord/model_init
 	@echo 'Cloning Superset Repo...'
 	git clone https://github.com/apache/superset.git
 
@@ -62,4 +64,5 @@ help:
 	@echo 'make superset	instantiate superset'
 	@echo 'make format		run code formatter'
 	@echo 'make lint		run code linter'
+	@echo 'make setup		set up the environment'
 	@echo '============================================='
