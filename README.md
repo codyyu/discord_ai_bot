@@ -28,6 +28,7 @@ Due to the scope and purpose of this project, everything will be running in dock
 #### Pre-requested:
 - make
 - docker & docker-compose
+- Platform: Mac or Linux (for automatic setup to work)
 - Minimum 12GB memory allocated for Docker
 
 #### Setup:
