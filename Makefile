@@ -50,6 +50,8 @@ setup:
 	docker rmi discord/model_init
 	@echo 'Cloning Superset Repo...'
 	git clone https://github.com/apache/superset.git
+	touch ./superset/docker/requirements-local.txt
+	@echo "pydruid" >> ./superset/docker/requirements-local.txt
 	docker network create -d bridge discord_ai_bot_network
 
 

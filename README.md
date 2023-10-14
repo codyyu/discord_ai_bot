@@ -30,8 +30,23 @@ Due to the scope and purpose of this project, everything will be running in dock
 - Step 2.1.\
 Fill in your Discord Bot Token in .env file
 - Step 2.2.
-    - Find `./superset/docker-compose.yml` file
-    - Add `TALISMAN_ENABLED=False` in the `superset` service as an extra environment variable
+    - Add `TALISMAN_ENABLED=False` in the `superset` service as an extra environment variable in Superset's docker-compose.yml
+    - Add the below networks block in Superset's docker-compose.yml
+    ```YAML
+    networks:
+        discord:
+            name: discord_ai_bot_network
+            external: true
+    ```
+    - Add the below for all services in Superset's docker-compose.yml
+    ```YAML
+    networks:
+      - discord
+    ```
+    - Comment out or remove the below in `superset-tests-worker` service in Superset's docker-compose.yml
+    ```YAML
+    network_mode: host
+    ```
 - Step 3.\
 `make kafka`\
 Note 1: This step will create a `messages` topic by default\
@@ -42,11 +57,15 @@ Note 1: This step will instantiate the bot and make the connection to kafka
 - Step 5.\
 Install the Bot on your Discord Server and type some texts in the Discord channel for testing. Monitoring the Discord Bot log to see if there are any errors.
 - Step 7.\
-`make druid`
-- Step 8. \
-`make superset`
+`make druid`\
+Note 1: kafka host: `broker:29092`\
+Note 2: kafka topic: `messages`
 
-## V. Developing Tutorial:
+- Step 8. \
+`make superset`\
+Note 1: Druid connection URL: `druid://<druid_router_ip>:8888/druid/v2/sql`
+
+## V. Development Tutorial:
 TODO
 
 ## VI. Learning Resources:
