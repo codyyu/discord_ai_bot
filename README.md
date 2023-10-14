@@ -23,6 +23,7 @@ Due to the scope and purpose of this project, everything will be running in dock
 #### Pre-requested:
 - make
 - docker & docker-compose
+- Minimum 12GB memory allocated for Docker
 
 #### Setup:
 - Step 1.\
