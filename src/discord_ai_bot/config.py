@@ -10,7 +10,6 @@ load_dotenv()
 
 class Config(BaseModel):
     DISCORD_BOT_TOKEN: str = os.environ["DISCORD_BOT_TOKEN"]
-    OPENAI_API_KEY: str = os.environ["OPENAI_API_KEY"]
     DATABASE: Database = Database(
         user=os.environ["BOT_BACKEND_DATABASE_USERNAME"],
         password=os.environ["BOT_BACKEND_DATABASE_PASSWORD"],
