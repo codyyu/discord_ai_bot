@@ -4,7 +4,12 @@
 
 To demonstrate the data streaming pipelines by implementing the modern data stack.
 
-## II.  Tech Stack:
+## II. Goal:
+- Streaming message data:\
+`bot -> kafka -> druid -> superset`
+- Detect hate speech in the Discord Server
+
+## III.  Tech Stack:
 
 
 - Language: Python 3.9
@@ -14,10 +19,10 @@ To demonstrate the data streaming pipelines by implementing the modern data stac
 - Analytics Layer: [Apache Druid](https://druid.apache.org/)
 - Visualization Layer: [Apache Superset](https://superset.apache.org/)
 
-## III. Infastructure:
+## IV. Infastructure:
 ![architecture](./assets/discord_ai_bot_infra.drawio.png)
 
-## IV. Set Up
+## V. Set Up
 
 Due to the scope and purpose of this project, everything will be running in docker containers via simple make commands. Thus, it is essential to have `make`, `docker` and `docker-compose` properly installed. 
 #### Pre-requested:
@@ -66,10 +71,10 @@ Note 2: kafka topic: `messages`
 `make superset`\
 Note 1: Druid connection URL: `druid://<druid_router_ip>:8888/druid/v2/sql`
 
-## V. Development Tutorial:
+## VI. Development Tutorial:
 TODO
 
-## VI. Learning Resources:
+## VII. Learning Resources:
 
 #### Discord:
 - [Doc: discord.py API Documentation](https://discordpy.readthedocs.io/en/stable/)
