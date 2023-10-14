@@ -6,6 +6,8 @@ services:
     depends_on:
       bot_backend_database:
         condition: service_healthy
+    networks:
+      - discord
   bot_backend_database:
     container_name: discord_bot_backend_database
     image: postgres:14.1-alpine
@@ -22,5 +24,11 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
+    networks:
+      - discord
     volumes:
       - ./data/pg_init.sql:/docker-entrypoint-initdb.d/init.sql
+networks:
+  discord:
+    name: discord_ai_bot_network
+    external: true

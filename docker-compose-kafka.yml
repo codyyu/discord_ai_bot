@@ -9,6 +9,8 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - discord
 
   broker:
     image: confluentinc/cp-kafka:7.5.0
@@ -36,6 +38,8 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    networks:
+      - discord
   
   kafka-init:
     image: confluentinc/cp-kafka:7.5.0
@@ -55,3 +59,10 @@ services:
       echo -e 'Successfully created the following topics:'
       kafka-topics --bootstrap-server broker:29092 --list
       "
+    networks:
+      - discord
+
+networks:
+  discord:
+    name: discord_ai_bot_network
+    external: true

@@ -40,6 +40,8 @@ services:
       - POSTGRES_PASSWORD=FoolishPassword
       - POSTGRES_USER=druid
       - POSTGRES_DB=druid
+    networks:
+      - discord
 
   # Need 3.5 or later for container nodes
   zookeeper_druid:
@@ -49,6 +51,8 @@ services:
       - "2182:2181"
     environment:
       - ZOO_MY_ID=1
+    networks:
+      - discord
 
   coordinator:
     image: apache/druid:27.0.0
@@ -65,6 +69,8 @@ services:
       - coordinator
     env_file:
       - environment
+    networks:
+      - discord
 
   broker_druid:
     image: apache/druid:27.0.0
@@ -81,6 +87,8 @@ services:
       - broker
     env_file:
       - environment
+    networks:
+      - discord
 
   historical:
     image: apache/druid:27.0.0
@@ -98,6 +106,8 @@ services:
       - historical
     env_file:
       - environment
+    networks:
+      - discord
 
   middlemanager:
     image: apache/druid:27.0.0
@@ -116,6 +126,8 @@ services:
       - middleManager
     env_file:
       - environment
+    networks:
+      - discord
 
   router:
     image: apache/druid:27.0.0
@@ -132,3 +144,10 @@ services:
       - router
     env_file:
       - environment
+    networks:
+      - discord
+
+networks:
+  discord:
+    name: discord_ai_bot_network
+    external: true
