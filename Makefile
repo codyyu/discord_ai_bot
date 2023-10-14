@@ -1,4 +1,4 @@
-.PHONY: all, bot, kafka, druid, superset, format, lint, setup, help
+.PHONY: all bot kafka druid superset format lint setup help
 
 all: help
 
