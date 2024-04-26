@@ -10,8 +10,6 @@ To demonstrate the data streaming pipelines by implementing the modern data stac
 - Detect hate speech in the Discord Server
 
 ## III.  Tech Stack:
-
-
 - Language: Python 3.9
 - Data Source: Discord Bot
 - Storage Layer: PostgreSQL
